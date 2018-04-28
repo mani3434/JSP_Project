@@ -44,14 +44,21 @@
 	}
 
 	conn = DriverManager.getConnection(url, dbUser, dbPwd);
-
+	application.setAttribute("connection", conn);
+	
 	String userName = request.getParameter("userName");
 	String password = request.getParameter("password");
-
+	
 	boolean flag = verify(userName, password);
-
+		System.out.println("User name:"+ userName+ "\n Password:"+password+ "\n flag:"+flag);
 	if (flag) {
 		session.setAttribute("user", userName);
+		String rurl = request.getParameter("requestUrl");
+		if(rurl != null && !url.equals("null")){
+			response.sendRedirect(rurl+".jsp");
+		}
 		response.sendRedirect("courses.jsp");
+	}else{
+		response.sendRedirect("error.jsp");
 	}
 %>

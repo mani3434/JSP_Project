@@ -30,7 +30,8 @@
 							<label class="control-label">Search Course</label>
 							 <input
 								type="search" class="from-control" name="courseName"
-								placeholder="Enter Course Title" /> <input type="submit"
+								placeholder="Enter Course Title" />
+								 <input type="submit"
 								class="btn btn-primary" value="search" />
 						</div>
 					</form>
